@@ -126,7 +126,7 @@ class CommentSearch(PermissionRequiredMixin, ListView):
 
         user_current = self.request.user
         # print(f'текущий пользователь = {user_current}')
-        groups_of_current_user = user_current.groups.all().values_list('name', flat=True)
+        # groups_of_current_user = user_current.groups.all().values_list('name', flat=True)
         # print(f'group = {groups_of_current_user}')
 
         post_by_current_user = Post.objects.filter(author=user_current.author)

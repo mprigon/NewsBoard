@@ -42,6 +42,7 @@ def notify_about_new_comment(sender, instance, **kwargs):
 # Сообщение пользователю, что его отклик принят автором
 @receiver(pre_save, sender=Comment)
 def notify_comment_accepted(sender, instance, **kwargs):
+    # status = False, если отклик не принят, по умолчанию
     if not instance.status:
         return
     mail = instance.commentUser.email
